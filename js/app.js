@@ -460,8 +460,41 @@ document.addEventListener('DOMContentLoaded', () => {
             btnSubmitText.textContent = t.btnSending;
             btnSpinner.style.display = 'inline-block';
 
-            // Préparation des données FormData (gère le fichier joint sans encodage manuel)
-            const formData = new FormData(feedbackForm);
+            // Préparation ciblée des données : envoyer STRICTEMENT les champs de la section active
+            const formData = new FormData();
+            formData.append('access_key', document.getElementById('web3formsKey').value);
+            formData.append('subject', emailSubject.value);
+            formData.append('from_name', userName);
+            formData.append('replyto', userEmail);
+            formData.append('Produit', selectedProductInput.value);
+            formData.append('Type_de_demande', typeNamesFR[type] || type);
+
+            if (type === 'bug') {
+                formData.append('Systeme_OS', document.getElementById('bugOS').value);
+                const bugVersion = document.getElementById('bugVersion').value.trim();
+                if (bugVersion) formData.append('Version_du_logiciel', bugVersion);
+
+                const severityChecked = document.querySelector('input[name="severity"]:checked');
+                if (severityChecked) formData.append('Impact_du_bug', severityChecked.value);
+
+                formData.append('Description_du_probleme', document.getElementById('bugDesc').value.trim());
+
+                const mediaLink = document.getElementById('bugMediaLink').value.trim();
+                if (mediaLink) formData.append('Lien_capture_ou_video', mediaLink);
+            } else if (type === 'idea') {
+                formData.append('Titre_de_l_idee', document.getElementById('ideaTitle').value.trim());
+                formData.append('Besoin_metier_Gain', document.getElementById('ideaNeed').value.trim());
+            } else if (type === 'review') {
+                formData.append('Evaluation', `${selectedRatingInput.value} / 5 etoiles`);
+                const reviewComment = document.getElementById('reviewComment').value.trim();
+                if (reviewComment) formData.append('Avis_Temoignage', reviewComment);
+            } else if (type === 'question') {
+                formData.append('Objet', document.getElementById('questionSubject').value.trim());
+                formData.append('Question_detaillee', document.getElementById('questionDetails').value.trim());
+            }
+
+            formData.append('Nom_Complet', userName);
+            formData.append('Email_Client', userEmail);
 
             try {
                 const response = await fetch('https://api.web3forms.com/submit', {
