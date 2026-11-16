@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagin'Art — Support, Retours &amp; Suggestions</title>
+    <meta name="description" content="Formulaire officiel de retour utilisateur, signalement de bugs et suggestions pour Imagin'Art Suite, Wlidi et nos solutions logicielles.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/logo_icon.svg">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Background Subtle Aura -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <div class="app-wrapper">
+
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-container">
+                <a href="https://imaginart-design.github.io/Portfolio/" class="brand-link" aria-label="Imagin'Art Accueil">
+                    <img src="assets/logo_icon.svg" alt="Imagin'Art Icon" class="brand-logo-icon">
+                    <img src="assets/logo_text.svg" alt="Imagin'Art" class="brand-logo-text">
+                </a>
+
+                <button id="langToggleBtn" class="lang-switch-btn" type="button" aria-label="Changer de langue">
+                    <svg class="globe-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span id="langLabel">العربية</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Container -->
+        <main class="main-container">
+            
+            <!-- Hero Intro -->
+            <div class="hero-intro">
+                <span class="hero-pill" data-i18n="heroPill">Centre de Contact Technique</span>
+                <h1 class="hero-title" data-i18n="heroTitle">Assistance, Retours &amp; Suggestions</h1>
+                <p class="hero-subtitle" data-i18n="heroSubtitle">
+                    Formulaire officiel de transmission pour Imagin'Art Suite, Wlidi et nos solutions logicielles. Vos retours sont directement traités par le concepteur.
+                </p>
+            </div>
+
+            <!-- Form Card -->
+            <div class="form-card glass-card">
+                
+                <form id="feedbackForm" novalidate>
+                    <!-- Web3Forms API Configuration -->
+                    <input type="hidden" name="access_key" id="web3formsKey" value="737379d5-7f04-4657-ad4f-c4751c3e8df2">
+                    <input type="hidden" name="subject" id="emailSubject" value="[Imagin'Art Hub] Nouveau retour">
+                    <input type="hidden" name="from_name" value="Imagin'Art Hub">
+                    <input type="hidden" name="replyto" id="replyToEmail" value="">
+                    <input type="checkbox" name="botcheck" class="hidden-bot" style="display:none;" tabindex="-1" autocomplete="off">
+
+                    <!-- Hidden Trackers -->
+                    <input type="hidden" name="product" id="selectedProductInput" value="Imagin'Art Suite">
+                    <input type="hidden" name="feedback_type" id="selectedFeedbackTypeInput" value="bug">
+                    <input type="hidden" name="rating" id="selectedRatingInput" value="5">
+
+                    <!-- ═══ ÉTAPE 1 : CHOIX DU PRODUIT ═══ -->
+                    <section class="form-section">
+                        <label class="section-label">
+                            <span class="step-badge">1</span>
+                            <span data-i18n="step1Label">Sélectionnez le projet concerné</span>
+                        </label>
+                        
+                        <div class="product-cards-grid" role="radiogroup" aria-label="Choix du produit">
+                            
+                            <!-- Option A : Suite -->
+                            <div class="product-card active" data-product="suite" tabindex="0" role="radio" aria-checked="true">
+                                <div class="product-card-icon">
+                                    <img src="assets/logo_2.0.svg" alt="Imagin'Art Suite" class="suite-logo-img">
+                                </div>
+                                <div class="product-card-info">
+                                    <div class="product-card-title">
+                                        <span>Imagin'Art Suite</span>
+                                        <span class="product-tag-pill" data-i18n="tagExtension">Illustrator</span>
+                                    </div>
+                                    <p class="product-card-desc" data-i18n="suiteDesc">Extension d'automatisation prépresse, imposition &amp; repères.</p>
+                                </div>
+                                <div class="radio-indicator"></div>
+                            </div>
+
+                            <!-- Option B : Wlidi -->
+                            <div class="product-card" data-product="wlidi" tabindex="0" role="radio" aria-checked="false">
+                                <div class="product-card-icon">
+                                    <img src="assets/wlidi_icon.png" alt="Wlidi" class="wlidi-logo-img">
+                                </div>
+                                <div class="product-card-info">
+                                    <div class="product-card-title">
+                                        <span>Wlidi (وليدي)</span>
+                                        <span class="product-tag-pill tag-teal" data-i18n="tagDesktop">Portable</span>
+                                    </div>
+                                    <p class="product-card-desc" data-i18n="wlidiDesc">Application de saisie vocale des notes Massar pour enseignants.</p>
+                                </div>
+                                <div class="radio-indicator"></div>
+                            </div>
+
+                            <!-- Option C : Autre -->
+                            <div class="product-card" data-product="other" tabindex="0" role="radio" aria-checked="false">
+                                <div class="product-card-icon icon-tech">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                                        <path d="M3 9h18"></path>
+                                        <path d="M9 21V9"></path>
+                                    </svg>
+                                </div>
+                                <div class="product-card-info">
+                                    <div class="product-card-title">
+                                        <span data-i18n="otherTitle">Autre Projet / Idée</span>
+                                        <span class="product-tag-pill tag-gray" data-i18n="tagGeneral">Global</span>
+                                    </div>
+                                    <p class="product-card-desc" data-i18n="otherDesc">Nouvelle idée d'outil, travail d'atelier, script sur mesure ou question générale.</p>
+                                </div>
+                                <div class="radio-indicator"></div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- ═══ ÉTAPE 2 : TYPE DE RETOUR ═══ -->
+                    <section class="form-section">
+                        <label class="section-label">
+                            <span class="step-badge">2</span>
+                            <span data-i18n="step2Label">Nature de votre message</span>
+                        </label>
+                        
+                        <div class="type-pills-group" role="radiogroup" aria-label="Type de demande">
+                            <button type="button" class="type-pill active" data-type="bug" role="radio" aria-checked="true">
+                                <svg class="pill-svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect width="8" height="14" x="8" y="6" rx="4"></rect>
+                                    <path d="m19 7-3 2"></path>
+                                    <path d="m5 7 3 2"></path>
+                                    <path d="m19 19-3-2"></path>
+                                    <path d="m5 19 3-2"></path>
+                                    <path d="M20 13h-4"></path>
+                                    <path d="M4 13h4"></path>
+                                    <path d="m10 4 1 2"></path>
+                                    <path d="m14 4-1 2"></path>
+                                </svg>
+                                <span data-i18n="pillBug">Signalement de Bug</span>
+                            </button>
+
+                            <button type="button" class="type-pill" data-type="idea" role="radio" aria-checked="false">
+                                <svg class="pill-svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
+                                    <path d="M9 18h6"></path>
+                                    <path d="M10 22h4"></path>
+                                </svg>
+                                <span data-i18n="pillIdea">Suggestion / Idée</span>
+                            </button>
+
+                            <button type="button" class="type-pill" data-type="review" role="radio" aria-checked="false">
+                                <svg class="pill-svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                                <span data-i18n="pillReview">Avis &amp; Témoignage</span>
+                            </button>
+
+                            <button type="button" class="type-pill" data-type="question" role="radio" aria-checked="false">
+                                <svg class="pill-svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                                <span data-i18n="pillQuestion">Question &amp; Assistance</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- ═══ ÉTAPE 3 : DÉTAILS CONTEXTUELS ═══ -->
+                    <section class="form-section dynamic-section">
+                        <label class="section-label">
+                            <span class="step-badge">3</span>
+                            <span id="step3TitleText" data-i18n="step3LabelBug">Détails techniques du dysfonctionnement</span>
+                        </label>
+
+                        <!-- Panneau BUG -->
+                        <div id="panelBug" class="dynamic-panel active">
+                            <div class="fields-row-2">
+                                <div class="form-group">
+                                    <label for="bugOS" class="field-label">
+                                        <span data-i18n="labelOS">Système d'exploitation</span>
+                                    </label>
+                                    <div class="select-wrapper">
+                                        <select id="bugOS" name="os" class="form-select">
+                                            <option value="Windows 11">Windows 11</option>
+                                            <option value="Windows 10">Windows 10</option>
+                                            <option value="macOS Sequoia / Sonoma">macOS Sequoia / Sonoma</option>
+                                            <option value="macOS Ventura ou antérieur">macOS Ventura ou antérieur</option>
+                                            <option value="Autre" data-i18n="optOther">Autre système</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="bugVersion" class="field-label">
+                                        <span data-i18n="labelVersion">Version du logiciel</span>
+                                    </label>
+                                    <input type="text" id="bugVersion" name="software_version" class="form-input" placeholder="ex: Illustrator 2026, Suite v4.0, Wlidi v1.0" data-i18n-placeholder="phVersion">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bugSeverity" class="field-label">
+                                    <span data-i18n="labelSeverity">Impact du dysfonctionnement</span>
+                                </label>
+                                <div class="severity-cards">
+                                    <label class="severity-item">
+                                        <input type="radio" name="severity" value="Bloquant (Crash direct)">
+                                        <span class="severity-box sev-high">
+                                            <span class="sev-dot"></span>
+                                            <span data-i18n="sevHigh">Bloquant (Crash direct)</span>
+                                        </span>
+                                    </label>
+                                    <label class="severity-item">
+                                        <input type="radio" name="severity" value="Gênant (Partiel)" checked>
+                                        <span class="severity-box sev-med">
+                                            <span class="sev-dot"></span>
+                                            <span data-i18n="sevMed">Gênant (Partiel)</span>
+                                        </span>
+                                    </label>
+                                    <label class="severity-item">
+                                        <input type="radio" name="severity" value="Mineur (Affichage, détail)">
+                                        <span class="severity-box sev-low">
+                                            <span class="sev-dot"></span>
+                                            <span data-i18n="sevLow">Mineur (Affichage, détail)</span>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bugDesc" class="field-label">
+                                    <span data-i18n="labelBugDesc">Description du problème et étapes pour le reproduire</span>
+                                    <span class="required-star" title="Obligatoire">*</span>
+                                </label>
+                                <textarea id="bugDesc" name="bug_description" class="form-textarea" rows="4" placeholder="Expliquez ce que vous faisiez juste avant l'anomalie, et quel résultat inattendu s'est produit..." data-i18n-placeholder="phBugDesc" required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bugMediaLink" class="field-label">
+                                    <span data-i18n="labelMediaLink">Lien de capture d'écran ou vidéo</span>
+                                    <span class="optional-tag" data-i18n="tagOptional">(Optionnel)</span>
+                                </label>
+                                <input type="url" id="bugMediaLink" name="media_link" class="form-input" placeholder="https://drive.google.com/... ou lien Imgur, WeTransfer..." data-i18n-placeholder="phMediaLink">
+                            </div>
+                        </div>
+
+                        <!-- Panneau IDÉE / SUGGESTION -->
+                        <div id="panelIdea" class="dynamic-panel">
+                            <div class="form-group">
+                                <label for="ideaTitle" class="field-label">
+                                    <span data-i18n="labelIdeaTitle">Titre de votre idée ou fonction souhaitée</span>
+                                    <span class="required-star" title="Obligatoire">*</span>
+                                </label>
+                                <input type="text" id="ideaTitle" name="idea_title" class="form-input" placeholder="ex: Option d'imposition en livret, dictée des demi-points..." data-i18n-placeholder="phIdeaTitle">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ideaNeed" class="field-label">
+                                    <span data-i18n="labelIdeaNeed">Quel besoin cette idée résoudra-t-elle dans votre flux de travail ?</span>
+                                    <span class="required-star" title="Obligatoire">*</span>
+                                </label>
+                                <textarea id="ideaNeed" name="idea_description" class="form-textarea" rows="4" placeholder="Décrivez votre méthode actuelle et le gain de temps que cela vous apporterait..." data-i18n-placeholder="phIdeaNeed"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Panneau AVIS / TÉMOIGNAGE -->
+                        <div id="panelReview" class="dynamic-panel">
+                            <div class="form-group text-center">
+                                <label class="field-label">
+                                    <span data-i18n="labelRating">Votre évaluation globale</span>
+                                </label>
+                                <div class="rating-stars" id="starRatingGroup" role="radiogroup" aria-label="Note de 1 à 5">
+                                    <button type="button" class="star-btn active" data-rating="1" aria-label="1">★</button>
+                                    <button type="button" class="star-btn active" data-rating="2" aria-label="2">★</button>
+                                    <button type="button" class="star-btn active" data-rating="3" aria-label="3">★</button>
+                                    <button type="button" class="star-btn active" data-rating="4" aria-label="4">★</button>
+                                    <button type="button" class="star-btn active" data-rating="5" aria-label="5">★</button>
+                                </div>
+                                <span class="rating-feedback-badge" id="ratingTextBadge" data-i18n="rating5">5/5 — Excellent &amp; Indispensable</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="reviewComment" class="field-label">
+                                    <span data-i18n="labelReviewComment">Votre avis / retour d'expérience</span>
+                                    <span class="optional-tag" data-i18n="tagOptional">(Optionnel)</span>
+                                </label>
+                                <textarea id="reviewComment" name="review_text" class="form-textarea" rows="4" placeholder="Ce que vous appréciez le plus dans l'application, sa fiabilité, sa rapidité..." data-i18n-placeholder="phReviewComment"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Panneau QUESTION / SUPPORT -->
+                        <div id="panelQuestion" class="dynamic-panel">
+                            <div class="form-group">
+                                <label for="questionSubject" class="field-label">
+                                    <span data-i18n="labelQuestionSubject">Objet de votre question</span>
+                                    <span class="required-star" title="Obligatoire">*</span>
+                                </label>
+                                <input type="text" id="questionSubject" name="question_subject" class="form-input" placeholder="ex: Compatibilité, installation réseau..." data-i18n-placeholder="phQuestionSubject">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="questionDetails" class="field-label">
+                                    <span data-i18n="labelQuestionDetails">Votre question en détail</span>
+                                    <span class="required-star" title="Obligatoire">*</span>
+                                </label>
+                                <textarea id="questionDetails" name="question_text" class="form-textarea" rows="4" placeholder="Détaillez votre question pour nous permettre de vous répondre au mieux..." data-i18n-placeholder="phQuestionDetails"></textarea>
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <!-- ═══ ÉTAPE 4 : IDENTITÉ & CONTACT ═══ -->
+                    <section class="form-section">
+                        <label class="section-label">
+                            <span class="step-badge">4</span>
+                            <span data-i18n="step4Label">Vos coordonnées</span>
+                        </label>
+
+                        <div class="fields-row-2">
+                            <div class="form-group">
+                                <label for="userName" class="field-label">
+                                    <span data-i18n="labelName">Nom &amp; Prénom / Atelier</span>
+                                    <span class="required-star" title="Obligatoire">*</span>
+                                </label>
+                                <input type="text" id="userName" name="name" class="form-input" placeholder="ex: Karim Benjelloun, Atelier Print..." data-i18n-placeholder="phName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="userEmail" class="field-label">
+                                    <span data-i18n="labelEmail">Adresse e-mail</span>
+                                    <span class="required-star" title="Obligatoire">*</span>
+                                </label>
+                                <input type="email" id="userEmail" name="email" class="form-input" placeholder="votre.email@domaine.com" data-i18n-placeholder="phEmail" required>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Feedback Alert Message -->
+                    <div id="formErrorMsg" class="form-alert alert-error" style="display:none;" role="alert"></div>
+
+                    <!-- ═══ ACTION DE SOUMISSION ═══ -->
+                    <div class="form-actions-group">
+                        <button type="submit" id="btnSubmitForm" class="btn btn-primary btn-submit">
+                            <span class="btn-spinner" id="btnSpinner" style="display:none;"></span>
+                            <span class="btn-text" id="btnSubmitText" data-i18n="btnSubmit">Envoyer le message</span>
+                            <svg class="btn-arrow-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <p class="form-reassurance" data-i18n="reassuranceText">
+                        Vos informations sont transmises de manière sécurisée par e-mail direct à Laabidi Abdelghani (laabidi.cloud@gmail.com).
+                    </p>
+
+                </form>
+
+            </div>
+
+            <!-- ═══ ÉCRAN DE SUCCÈS ═══ -->
+            <div id="successOverlay" class="success-screen glass-card" style="display:none;">
+                <div class="success-content">
+                    <div class="success-icon-wrapper">
+                        <svg class="checkmark-svg" viewBox="0 0 52 52">
+                            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+
+                    <h2 class="success-title" data-i18n="successTitle">Message envoyé avec succès</h2>
+                    <p class="success-desc" data-i18n="successDesc">
+                        Votre message a été transmis directement à Laabidi Abdelghani. Une réponse vous parviendra dans les meilleurs délais sur votre adresse e-mail.
+                    </p>
+
+                    <div class="success-summary-box">
+                        <div class="summary-line">
+                            <span class="summary-key" data-i18n="sumProduct">Projet :</span>
+                            <strong class="summary-val" id="sumProductVal">Imagin'Art Suite</strong>
+                        </div>
+                        <div class="summary-line">
+                            <span class="summary-key" data-i18n="sumType">Nature :</span>
+                            <strong class="summary-val" id="sumTypeVal">Signalement de Bug</strong>
+                        </div>
+                    </div>
+
+                    <div class="success-actions">
+                        <button type="button" id="btnResetForm" class="btn btn-secondary" data-i18n="btnAnother">
+                            Envoyer un autre message
+                        </button>
+                        <a href="https://imaginart-design.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-i18n="btnPortfolio">
+                            Consulter le Portfolio →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-container">
+                <p class="footer-copy">
+                    &copy; 2026 <strong>Imagin'Art</strong> — Conçu &amp; Développé par <a href="https://imaginart-design.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">Laabidi Abdelghani</a>.
+                </p>
+                <div class="footer-links">
+                    <a href="https://linktr.ee/imagin.art" target="_blank" rel="noopener noreferrer">Linktree</a>
+                    <a href="https://imaginart-design.github.io/ImaginArt-Suite/" target="_blank" rel="noopener noreferrer">Imagin'Art Suite</a>
+                    <a href="https://imaginart-design.github.io/Wlidi/" target="_blank" rel="noopener noreferrer">Wlidi</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Application Script -->
+    <script src="js/app.js"></script>
+</body>
+</html>
