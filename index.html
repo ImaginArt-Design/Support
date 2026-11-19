@@ -169,7 +169,7 @@
                                 <svg class="pill-svg-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
                                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                                 </svg>
-                                <span data-i18n="pillReview">Avis &amp; Témoignage</span>
+                                <span data-i18n="pillReview">Avis Google (5★)</span>
                             </button>
 
                             <button type="button" class="type-pill" data-type="question" role="radio" aria-checked="false">
@@ -281,28 +281,18 @@
                             </div>
                         </div>
 
-                        <!-- Panneau AVIS / TÉMOIGNAGE -->
+                        <!-- Panneau AVIS GOOGLE DIRECT (100% Google Reviews, sans envoi mail) -->
                         <div id="panelReview" class="dynamic-panel">
-                            <div class="form-group text-center">
-                                <label class="field-label">
-                                    <span data-i18n="labelRating">Votre évaluation globale</span>
-                                </label>
-                                <div class="rating-stars" id="starRatingGroup" role="radiogroup" aria-label="Note de 1 à 5">
-                                    <button type="button" class="star-btn active" data-rating="1" aria-label="1">★</button>
-                                    <button type="button" class="star-btn active" data-rating="2" aria-label="2">★</button>
-                                    <button type="button" class="star-btn active" data-rating="3" aria-label="3">★</button>
-                                    <button type="button" class="star-btn active" data-rating="4" aria-label="4">★</button>
-                                    <button type="button" class="star-btn active" data-rating="5" aria-label="5">★</button>
-                                </div>
-                                <span class="rating-feedback-badge" id="ratingTextBadge" data-i18n="rating5">5/5 — Excellent &amp; Indispensable</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="reviewComment" class="field-label">
-                                    <span data-i18n="labelReviewComment">Votre avis / retour d'expérience</span>
-                                    <span class="optional-tag" data-i18n="tagOptional">(Optionnel)</span>
-                                </label>
-                                <textarea id="reviewComment" name="review_text" class="form-textarea" rows="4" placeholder="Ce que vous appréciez le plus dans l'application, sa fiabilité, sa rapidité..." data-i18n-placeholder="phReviewComment"></textarea>
+                            <div class="google-review-full-card" style="padding: 28px 22px; border-radius: 20px; background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.35); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                                <div style="color: #fbbf24; font-size: 2.2rem; letter-spacing: 4px; margin-bottom: 10px;" aria-hidden="true">★★★★★</div>
+                                <h3 style="font-size: 1.25rem; font-weight: 700; color: #f0d4a0; margin-bottom: 8px;" data-i18n="googleCardTitle">Votre avis sur Google compte énormément !</h3>
+                                <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 520px; margin: 0 auto 22px; line-height: 1.5;" data-i18n="googleCardDesc">
+                                    Pour soutenir nos outils et partager votre retour avec la communauté des graphistes et ateliers d'imprimerie, publiez directement votre évaluation 5 étoiles sur notre fiche Google officielle.
+                                </p>
+                                <a href="https://g.page/r/CQN1IYTRR-8mECE/review" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; padding: 13px 28px; font-size: 1rem; font-weight: 700; border-radius: 9999px; background: #ffffff; color: #0f172a; text-decoration: none; box-shadow: 0 8px 25px rgba(251, 191, 36, 0.35); transition: transform 0.2s ease;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+                                    <span data-i18n="googleCardBtn">Publier mon avis sur Google (5★) →</span>
+                                </a>
                             </div>
                         </div>
 
@@ -328,7 +318,7 @@
                     </section>
 
                     <!-- ═══ ÉTAPE 4 : IDENTITÉ & CONTACT ═══ -->
-                    <section class="form-section">
+                    <section class="form-section" id="step4Section">
                         <label class="section-label">
                             <span class="step-badge">4</span>
                             <span data-i18n="step4Label">Vos coordonnées</span>
@@ -357,7 +347,7 @@
                     <div id="formErrorMsg" class="form-alert alert-error" style="display:none;" role="alert"></div>
 
                     <!-- ═══ ACTION DE SOUMISSION ═══ -->
-                    <div class="form-actions-group">
+                    <div class="form-actions-group" id="formActionsGroup">
                         <button type="submit" id="btnSubmitForm" class="btn btn-primary btn-submit">
                             <span class="btn-spinner" id="btnSpinner" style="display:none;"></span>
                             <span class="btn-text" id="btnSubmitText" data-i18n="btnSubmit">Envoyer le message</span>
@@ -422,6 +412,7 @@
                     &copy; 2026 <strong>Imagin'Art</strong> — Conçu &amp; Développé par <a href="https://imaginart-design.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">Laabidi Abdelghani</a>.
                 </p>
                 <div class="footer-links">
+                    <a href="https://g.page/r/CQN1IYTRR-8mECE/review" target="_blank" rel="noopener noreferrer" style="color: #fbbf24; font-weight: 700; display: inline-flex; align-items: center; gap: 4px;"><span>★</span> Avis Google (5★)</a>
                     <a href="https://linktr.ee/imagin.art" target="_blank" rel="noopener noreferrer">Linktree</a>
                     <a href="https://imaginart-design.github.io/ImaginArt-Suite/" target="_blank" rel="noopener noreferrer">Imagin'Art Suite</a>
                     <a href="https://imaginart-design.github.io/Wlidi/" target="_blank" rel="noopener noreferrer">Wlidi</a>

@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
             step2Label: "Nature de votre message",
             pillBug: "Signalement de Bug",
             pillIdea: "Suggestion / Idée",
-            pillReview: "Avis &amp; Témoignage",
+            pillReview: "Avis Google (5★)",
             pillQuestion: "Question &amp; Assistance",
             step3LabelBug: "Détails techniques du dysfonctionnement",
             step3LabelIdea: "Détails de votre suggestion / idée",
-            step3LabelReview: "Votre évaluation &amp; avis",
+            step3LabelReview: "Évaluation &amp; Avis Google",
             step3LabelQuestion: "Votre question ou demande d'assistance",
             labelOS: "Système d'exploitation",
             optOther: "Autre système",
@@ -54,6 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
             rating5: "5/5 — Excellent & Indispensable",
             labelReviewComment: "Votre avis / retour d'expérience",
             phReviewComment: "Ce que vous appréciez le plus dans l'application, sa fiabilité, sa rapidité...",
+            googleCardTitle: "Votre avis sur Google compte énormément !",
+            googleCardDesc: "Pour soutenir nos outils et partager votre retour avec la communauté des graphistes et ateliers d'imprimerie, publiez directement votre évaluation 5 étoiles sur notre fiche Google officielle.",
+            googleCardBtn: "Publier mon avis sur Google (5★) →",
+            googleCalloutTitle: "Vous préférez publier un avis Google public ?",
+            googleCalloutText: "Votre avis sur notre fiche Google officielle renforce la confiance de la communauté créative.",
+            googleCalloutBtn: "Publier mon avis sur Google (5★)",
             labelQuestionSubject: "Objet de votre question",
             phQuestionSubject: "ex: Compatibilité, installation réseau...",
             labelQuestionDetails: "Votre question en détail",
@@ -92,11 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
             step2Label: "نوع الرسالة",
             pillBug: "إبلاغ عن عطل",
             pillIdea: "اقتراح فكرة",
-            pillReview: "إبداء رأي وتقييم",
+            pillReview: "تقييم Google (5★)",
             pillQuestion: "سؤال واستفسار",
             step3LabelBug: "التفاصيل التقنية للمشكلة",
             step3LabelIdea: "تفاصيل فكرتك أو الميزة المقترحة",
-            step3LabelReview: "تقييمك وانطباعك عن البرنامج",
+            step3LabelReview: "تقييم ومراجعة على Google",
             step3LabelQuestion: "سؤالك أو طلب المساعدة",
             labelOS: "نظام التشغيل",
             optOther: "نظام آخر",
@@ -123,6 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
             rating5: "5/5 — ممتاز ولا غنى عنه",
             labelReviewComment: "رأيك وانطباعك الصادق",
             phReviewComment: "أكثر ما يعجبك في التطبيق، دقته، سرعته، اعتماديته...",
+            googleCardTitle: "تقييمك على Google يعني لنا الكثير !",
+            googleCardDesc: "لدعم أدواتنا ومشاركة تجربتك مع مجتمع المصممين والمطابع، نرجو منك إضافة تقييم 5 نجوم مباشرة على صفحتنا الرسمية في Google.",
+            googleCardBtn: "أضف تقييمك على Google (5★) ←",
+            googleCalloutTitle: "هل تفضل كتابة تقييم عام على Google ؟",
+            googleCalloutText: "تقييمك على صفحتنا الرسمية في Google يساعدنا كثيراً ويعزز ثقة مجتمع المصممين والمطابع.",
+            googleCalloutBtn: "أضف تقييمك على Google (5★)",
             labelQuestionSubject: "موضوع السؤال",
             phQuestionSubject: "مثال : التوافق، التثبيت على الشبكة...",
             labelQuestionDetails: "سؤالك بالتفصيل",
@@ -289,6 +301,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 panels[key].classList.toggle('active', key === type);
             }
         });
+
+        // Masquer l'étape 4 (coordonnées) et les boutons d'envoi mail si l'utilisateur choisit Avis Google
+        const step4 = document.getElementById('step4Section');
+        const actionsGroup = document.getElementById('formActionsGroup');
+        const isReview = (type === 'review');
+        if (step4) step4.style.display = isReview ? 'none' : 'block';
+        if (actionsGroup) actionsGroup.style.display = isReview ? 'none' : 'flex';
+
+        const nameInput = document.getElementById('userName');
+        const emailInput = document.getElementById('userEmail');
+        if (nameInput) nameInput.required = !isReview;
+        if (emailInput) emailInput.required = !isReview;
+
         updateStep3Title(type);
         updateEmailSubject();
     }
@@ -391,6 +416,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const userName = userNameInput.value.trim();
             const userEmail = userEmailInput.value.trim();
             const type = selectedFeedbackTypeInput.value;
+            if (type === 'review') {
+                return;
+            }
 
             let hasError = false;
 
